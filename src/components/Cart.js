@@ -22,7 +22,6 @@ class Cart extends Component {
                     <li key={index}>
                         <div className='removeDiv'>
                             <i className='fa fa-times close' onClick={() => this.props.removeFromCart(index)}></i>
-                            {/* <button className='remove' onClick={() => this.props.removeFromCart(index)}> x </button> */}
                         </div>
                         <div className='items'>
                             <p className='text'>{item.name} </p>

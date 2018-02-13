@@ -7,7 +7,7 @@ class Header extends Component {
             <div className="header">
                 <div className="right">
                     <button className="chartBtn" onClick={this.props.onCartClick}> Your Cart </button>
-                    <button className="number"> {this.props.cardTotal} </button>
+                    <button onClick={this.props.onCartClick} className="number"> {this.props.cardTotal} </button>
                 </div>
                 <div className="left">
                     <i className="fa fa-shopping-cart logo"> </i> <span> Cart.ly  </span> 

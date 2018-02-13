@@ -196,6 +196,7 @@ p.center {
   font-size: 18px;
   display:block;
   margin: 0 auto;
+  float: right;
 }
 
 .cart-list ul {
