@@ -79,11 +79,9 @@ body {
   font-size: 20px;
   font-weight: bold;
 }
+
 .list ul {
   list-style-type: none;
-  -webkit-columns: 4;
-  -moz-columns: 4;
-  columns: 4;
 }
 
 .list li {
@@ -117,6 +115,10 @@ body {
 
 .center {
   text-align: center;
+}
+
+p.center {
+  margin: 50px;
 }
 
 .cartImg {
@@ -172,5 +174,36 @@ body {
   font-size:8px;
 }
 
+@media (width: 1440px) { 
+  .list ul {
+    -webkit-columns: 5;
+    -moz-columns: 5;
+    columns: 5;
+  }
+ }
+
+ @media (max-width: 425px) { 
+  .list ul {
+    -webkit-columns: 1;
+    -moz-columns: 1;
+    columns: 1;
+  }
+ }
+
+ @media (width: 768px) { 
+  .list ul {
+    -webkit-columns: 3;
+    -moz-columns: 3;
+    columns: 3;
+  }
+ }
+
+ @media (width: 1024px) { 
+  .list ul {
+    -webkit-columns: 4;
+    -moz-columns: 4;
+    columns: 4;
+  }
+ }
 
 
