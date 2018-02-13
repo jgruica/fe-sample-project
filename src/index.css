@@ -1,7 +1,14 @@
+menu,
+ol,
+ul {
+    padding: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
+  overflow: hidden;
 }
 
 .header {
@@ -62,15 +69,108 @@ body {
 
 .shop {
   padding-top: 70px;
-  margin-left: 20px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.shopText {
+  width: 100%;
   color:#4A4A4A;
   font-size: 20px;
   font-weight: bold;
 }
 .list ul {
   list-style-type: none;
-    -webkit-columns: 2;
-    -moz-columns: 2;
-    columns: 2;
-    list-style-position: inside;
+  -webkit-columns: 4;
+  -moz-columns: 4;
+  columns: 4;
 }
+
+.list li {
+  border: 1px solid #D2CECF;
+  text-align: center;
+  width: 250px;
+  margin-bottom: 20px;
+}
+
+.img {
+  width: 200px;
+}
+
+.container-empty-cart, .container-cart {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  bottom: -70px;
+  background-color: white;
+  opacity: 0.9;
+}
+
+.cart-empty, .cart{
+  color:#4A4A4A;
+  font-size: 20px;
+  width: 300px;
+  padding-top: 150px;
+  display: block;
+  margin: 0 auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.cartImg {
+  width: 50px;
+  height: 50px;
+}
+
+.items {
+  float: right;
+}
+
+.text {
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.price {
+  font-size: 18px;
+  display:block;
+  margin: 0 auto;
+}
+
+.cart-list ul {
+  list-style-type: none;
+}
+
+.total {
+  font-size: 22px;
+  font-weight: bold;
+}
+.totalPrice {
+  float: right;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.back {
+  margin-top: 50px;
+  padding: 6px 27px;
+  color: 	#BEBEBE;
+  background-color: white;
+  border: 1px solid 	#BEBEBE;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.removeDiv{
+  float: right;
+}
+.remove {
+  background-color: #D8D8D8;
+  color: white;
+  border-radius: 50%;
+  font-size:8px;
+}
+
+
+
