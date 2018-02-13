@@ -1,36 +1,66 @@
 import React, { Component } from 'react'
+import Header from './Header'
+import ShoppingList from './ShoppingList'
+import Cart from './Cart'
+import productsData from '../product-payload.json'
 
 class Shop extends Component {
-
-    calculatePrice = (price) => {
-        return price / 100;
+    constructor(props) {
+        super(props)
+        this.state = {
+            products: productsData.products,
+            addedToCart: [],
+        };
     }
 
-    render() {
-        const list = this.props.products.map((item, index) => {
-            const picturePath = '/images/' + item.filename
-            return (
-                <li key={index}>
-                    <img className='img' src={picturePath} alt='pic' /> <br />
-                    {item.name} <br />
-                    ${this.calculatePrice(item.price)} <br />
-                    <button onClick={() => this.props.addToCart(item)}> Add to cart</button>
-                </li>
-            )
+
+    onCartClick = () => {
+        this.setState(prevState => {
+            return {
+                isCartVisible: true
+            }
         })
+    }
+
+    addToCart = (product) => {
+        this.setState(prevState => {
+            return {
+                addedToCart: prevState.addedToCart.concat([product]),
+            }
+        })
+    }
+
+    removeFromCart = (index) => {
+        let currentCart = this.state.addedToCart.slice();
+        currentCart.splice(index, 1)
+        this.setState((prevState, props) => {
+            return {
+                addedToCart: currentCart
+            }
+        })
+    }
+
+    clickBack = () => {
+        this.setState(prevState => {
+            return {
+                isCartVisible: false
+            }
+        })
+    }
+
+
+    render() {
         return (
-            <div className='shop'>
-                <div className='shopText'>
-                    Shop our featured collection
-                </div>
-                <div className='list'>
-                    <ul>
-                        {list}
-                    </ul>
-                </div>
+            <div className='main' >
+                <Header onCartClick={this.onCartClick} cardTotal={this.state.addedToCart.length} />
+                <ShoppingList products={this.state.products} addToCart={this.addToCart} />
+                
+                {this.state.isCartVisible && 
+                <Cart products={this.state.addedToCart} removeFromCart={this.removeFromCart} clickBack={this.clickBack} />}
             </div>
         )
     }
 }
 
-export default Shop
+export default Shop;
+

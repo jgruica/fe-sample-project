@@ -1,66 +1,34 @@
 import React, { Component } from 'react'
-import Header from './Header'
-import Shop from './Shop'
-import Cart from './Cart'
-import productsData from '../product-payload.json'
 
-class App extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            products: productsData.products,
-            addedToCart: [],
-        };
+class ShoppingList extends Component {
+
+    calculatePrice = (price) => {
+        return price / 100;
     }
-
-
-    onCartClick = () => {
-        this.setState(prevState => {
-            return {
-                isCartVisible: true
-            }
-        })
-    }
-
-    addToCart = (product) => {
-        this.setState(prevState => {
-            return {
-                addedToCart: prevState.addedToCart.concat([product]),
-            }
-        })
-    }
-
-    removeFromCart = (index) => {
-        let currentCart = this.state.addedToCart.slice();
-        currentCart.splice(index, 1)
-        this.setState((prevState, props) => {
-            return {
-                addedToCart: currentCart
-            }
-        })
-    }
-
-    clickBack = () => {
-        this.setState(prevState => {
-            return {
-                isCartVisible: false
-            }
-        })
-    }
-
 
     render() {
+        const list = this.props.products.map((item, index) => {
+            const picturePath = '/images/' + item.filename
+            return (
+                <div className='card' key={index}>
+                    <img className='pic' src={picturePath} alt='pic' />
+                    <p className='productName'> {item.name} </p>
+                    <p className='productPrice'>${this.calculatePrice(item.price)} </p>
+                    <p><button className='addToCart' onClick={() => this.props.addToCart(item)}> Add to cart</button></p>
+                </div>
+            )
+        })
         return (
-            <div className='main' >
-                <Header onCartClick={this.onCartClick} cardTotal={this.state.addedToCart.length} />
-                <Shop products={this.state.products} addToCart={this.addToCart} />
-                
-                {this.state.isCartVisible && 
-                <Cart products={this.state.addedToCart} removeFromCart={this.removeFromCart} clickBack={this.clickBack} />}
+            <div className='shop'>
+                <div className='shopText'>
+                    Shop our featured collection
+                </div>
+                <div className='list'>
+                    {list}
+                </div>
             </div>
         )
     }
 }
 
-export default App;
-
+export default ShoppingList

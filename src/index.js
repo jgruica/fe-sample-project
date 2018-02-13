@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import ShoppingList from './components/ShoppingList'
+import Shop from './components/Shop'
 
 class App extends Component {
   render() {
     return (
         <div className='main-page'>
-          <ShoppingList />
+          <Shop />
       </div>
     )
   }
