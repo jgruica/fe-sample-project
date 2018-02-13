@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 class Shop extends Component {
-    
+
     calculatePrice = (price) => {
         return price / 100;
     } 
@@ -14,7 +14,7 @@ class Shop extends Component {
                     <img src={picturePath} alt=""/> <br />
                     {item.name} <br />
                     ${this.calculatePrice(item.price)} <br/>
-                    <button onClick={this.props.addToCart}> Add to cart</button>
+                    <button onClick={() => this.props.addToCart(item)}> Add to cart</button>
                 </li>
             )
         })

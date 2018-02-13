@@ -10,7 +10,7 @@ class App extends Component {
         this.state = {
             products: productsData.products,
             addedToCart: [],
-            cardTotal: 0
+            totalPrice: 0
         };
     }
 
@@ -23,18 +23,23 @@ class App extends Component {
         })
     }
 
-    addToCart =() => {
-
+    addToCart = (product) => {
+        this.setState(prevState => {
+            return {
+                addedToCart: prevState.addedToCart.concat([product]),
+            }
+        })
     }
 
- 
+
+
 
     render() {
         return (
             <div className='main' >
-                <Header onCartClick={this.onCartClick} cardTotal={this.state.cardTotal} />
+                <Header onCartClick={this.onCartClick} cardTotal={this.state.addedToCart.length} />
                 <Shop products={this.state.products} addToCart={this.addToCart} />
-                {this.state.isCartVisible && <Cart />}
+                {this.state.isCartVisible && <Cart products={this.state.addedToCart}  />}
             </div>
         )
     }
