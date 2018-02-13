@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+.header {
+  width: 100%;
+  position: fixed;        
+  background:	#0C01CF;
+  color: white;
+}
+
+.left {
+  padding-left: 20px;
+  float: left;
+
+}
+
+.right {
+  padding-right: 30px;
+  margin-top: 5px;
+  float: right;
+}
+
+.logo {
+  display: inline;
+  margin-top: 5px;
+  width: 90px;
+  height: 28px;
+}
+
+.shopBtn {
+  display: inline;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.shopBtn, .chartBtn {
+  border: none;
+  background: #0C01CF;
+  color: white;
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+}
+
+.shopBtn, .chartBtn:focus { 
+  outline: none; 
+}
+
+.shopBtn, .chartBtn:active { 
+  border-bottom: 1px solid white;
+}
+
+.number { 
+  margin-top: 10px;
+  color: #0C01CF;
+  width: 30px;
+  height: 20px;
+  font-weight: bold;
+}
+
+.shop {
+  padding-top: 70px;
+  margin-left: 20px;
+  color:#4A4A4A;
+  font-size: 20px;
+  font-weight: bold;
+}
+.list ul {
+  list-style-type: none;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
+    list-style-position: inside;
+}
