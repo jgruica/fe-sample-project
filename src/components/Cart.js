@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../font-awesome-4.7.0/css/font-awesome.min.css';
 
 class Cart extends Component {
 
@@ -19,8 +20,9 @@ class Cart extends Component {
                 const picturePath = '/images/' + item.filename
                 return (
                     <li key={index}>
-                    <div className='removeDiv'>
-                            <button className='remove' onClick={() => this.props.removeFromCart(index)}> x </button>
+                        <div className='removeDiv'>
+                            <i className='fa fa-times close' onClick={() => this.props.removeFromCart(index)}></i>
+                            {/* <button className='remove' onClick={() => this.props.removeFromCart(index)}> x </button> */}
                         </div>
                         <div className='items'>
                             <p className='text'>{item.name} </p>

@@ -3,6 +3,9 @@ ol,
 ul {
     padding: 0;
 }
+.button {
+  cursor:pointer;
+}
 
 body {
   margin: 0;
@@ -39,6 +42,7 @@ span {
 
 .shopBtn {
   display: inline-block;
+  padding-left: 30px;
 }
 
 .shopBtn, .chartBtn {
@@ -80,6 +84,7 @@ span {
 
 .list {
   margin-right: 0;
+  text-align:center;
 }
 
 .shopText {
@@ -95,18 +100,19 @@ span {
   text-align: center;
   width: 322.5px;
   display: inline-block;
-  margin-right: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
   margin-top: 20px;
   box-shadow: 0.5px 0.5px 0.5px 0.5px #D2CECF;
   border-radius: 4px;
 }
 
-.card:active {
+.card:hover {
   border-color: #0C01CF;   
 }
 
 .pic {
-  min-width: 300px;
+  min-width: 322px;
   display: block;
   margin: 0 auto;
 }
@@ -174,6 +180,7 @@ p.center {
 .cartImg {
   width: 50px;
   height: 50px;
+  border: 1px solid #BEBEBE;
 }
 
 .items {
@@ -218,20 +225,51 @@ p.center {
   float: right;
 }
 
-.remove {
-  background-color: #D8D8D8;
+.close {
+  margin-left: 5px;
+  background-color: #BEBEBE;
   color: white;
+  font-size: 10px !important;
   border-radius: 50%;
-  font-size:8px;
 }
-/* 
-@media (max-width: 768px) { 
-  .card {
-    border: 1px solid #D2CECF;
-    text-align: center;
-    width: 100px;
-    display: inline-block;
-    margin: 20px;
+
+@media (max-width: 380px) { 
+
+  .shop {
+    padding-top: 70px;
   }
- } */
+
+  span {
+    font-size:18px;
+    font-weight: bold;
+  }
+  
+  .shopBtn {
+    display: inline-block;
+    padding-left: 10px;
+  }
+  
+  .shopBtn, .chartBtn {
+    border: none;
+    background: #0C01CF;
+    color: white;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .right {
+    margin-right: 5px;
+    margin-top: 2px;
+  }
+
+  .number { 
+    margin-top: 10px;
+    color: #0C01CF;
+    width: 25px;
+    height: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+
+ }
 
