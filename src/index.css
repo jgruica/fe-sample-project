@@ -22,13 +22,13 @@ body {
 
 .right {
   float: right;
-  margin-right: 22px;
-  margin-top: 5px;
+  margin-right: 31px;
+  margin-top: 7px;
 }
 
 .logo {
   font-size:30px !important;
-  margin-left:22px;
+  margin-left:31px;
   padding-top: 5px !important;
 }
 
@@ -74,8 +74,12 @@ span {
 
 .shop {
   padding-top: 70px;
-  margin-left: 25px;
-  margin-right: 25px;
+  padding-left:31px;
+  padding-right: 31px;
+}
+
+.list {
+  margin-right: 0;
 }
 
 .shopText {
@@ -83,15 +87,22 @@ span {
   color:#4A4A4A;
   font-size: 25px;
   font-weight: bold;
+  margin-bottom: 7px;
 }
 
 .card {
   border: 1px solid #D2CECF;
   text-align: center;
-  width: 322px;
+  width: 322.5px;
   display: inline-block;
   margin-right: 20px;
   margin-top: 20px;
+  box-shadow: 0.5px 0.5px 0.5px 0.5px #D2CECF;
+  border-radius: 4px;
+}
+
+.card:active {
+  border-color: #0C01CF;   
 }
 
 .pic {
@@ -124,6 +135,14 @@ p.btn {
   border: 1px solid 	#656565;
   border-radius: 4px;
   font-size: 14px;
+}
+
+.addToCart:active {
+  border-color: #0C01CF;  
+}
+
+.addToCart:focus {
+  outline: none; 
 }
 
 .container-empty-cart, .container-cart {
