@@ -10,7 +10,6 @@ class App extends Component {
         this.state = {
             products: productsData.products,
             addedToCart: [],
-            totalPrice: 0
         };
     }
 
@@ -41,7 +40,13 @@ class App extends Component {
         })
     }
 
-
+    clickBack = () => {
+        this.setState(prevState => {
+            return {
+                isCartVisible: false
+            }
+        })
+    }
 
 
     render() {
@@ -49,7 +54,9 @@ class App extends Component {
             <div className='main' >
                 <Header onCartClick={this.onCartClick} cardTotal={this.state.addedToCart.length} />
                 <Shop products={this.state.products} addToCart={this.addToCart} />
-                {this.state.isCartVisible && <Cart products={this.state.addedToCart} removeFromCart={this.removeFromCart}/>}
+                
+                {this.state.isCartVisible && 
+                <Cart products={this.state.addedToCart} removeFromCart={this.removeFromCart} clickBack={this.clickBack} />}
             </div>
         )
     }
