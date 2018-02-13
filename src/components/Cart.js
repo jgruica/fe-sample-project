@@ -12,7 +12,7 @@ class Cart extends Component {
                     <img src={picturePath} alt=""/> 
                     {item.name} <br/>
                     ${this.calculatePrice(item.price)} 
-                    <button> x </button>
+                    <button onClick={() => this.props.removeFromCart(index)}> x </button>
                 </li>
             )
         })

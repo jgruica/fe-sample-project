@@ -31,6 +31,16 @@ class App extends Component {
         })
     }
 
+    removeFromCart = (index) => {
+        let currentCart = this.state.addedToCart.slice();
+        currentCart.splice(index, 1)
+        this.setState((prevState, props) => {
+            return {
+                addedToCart: currentCart
+            }
+        })
+    }
+
 
 
 
@@ -39,7 +49,7 @@ class App extends Component {
             <div className='main' >
                 <Header onCartClick={this.onCartClick} cardTotal={this.state.addedToCart.length} />
                 <Shop products={this.state.products} addToCart={this.addToCart} />
-                {this.state.isCartVisible && <Cart products={this.state.addedToCart}  />}
+                {this.state.isCartVisible && <Cart products={this.state.addedToCart} removeFromCart={this.removeFromCart}/>}
             </div>
         )
     }
