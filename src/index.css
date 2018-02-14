@@ -1,3 +1,10 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  position: relative;
+}
+
 menu,
 ol,
 ul {
@@ -8,14 +15,7 @@ button {
   cursor:pointer;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Lato', sans-serif;
-  position: relative;
-}
-
-.header {
+.container-header {
   width: 100%;
   position: fixed;        
   background:	#0C01CF;
@@ -24,7 +24,7 @@ body {
   height: 45px;
 }
 
-.right {
+.right-header {
   float: right;
   margin-right: 31px;
   margin-top: 7px;
@@ -41,12 +41,12 @@ span {
   font-weight: bold;
 }
 
-.shopBtn {
+.shop-button {
   display: inline-block;
   padding-left: 30px;
 }
 
-.shopBtn, .chartBtn {
+.shop-button, .chart-button {
   border: none;
   background: #0C01CF;
   color: white;
@@ -54,41 +54,37 @@ span {
   font-family: 'Lato', sans-serif;
 }
 
-.shopBtn, .chartBtn:focus { 
+.shop-button, .chart-button:focus { 
   outline: none; 
 }
 
-.shopBtn, .chartBtn:active { 
+.shop-button.active, .chart-button.active {
   text-decoration: underline;
-  color: white;
 }
 
-.shopBtn, .chartBtn:visited {
-  text-decoration: underline;
-  color:white;
-}
-
-.number { 
-  margin-top: 5px;
+.number-button { 
   color: #0C01CF;
   width: 38px;
-  height: 22px;
   font-weight: bold;
   border-radius: 5px;
 }
 
-.shop {
+.container-shop {
   padding-top: 70px;
   padding-left:31px;
   padding-right: 31px;
 }
 
-.list {
+.blur {
+  filter: blur(13px); 
+}
+
+.shop-list {
   margin-right: 0;
   text-align:center;
 }
 
-.shopText {
+.shop-text {
   width: 100%;
   color:#4A4A4A;
   font-size: 25px;
@@ -96,34 +92,34 @@ span {
   margin-bottom: 7px;
 }
 
-.card {
+.container-card {
   border: 1px solid #D2CECF;
   text-align: center;
-  width: 322.5px;
+  width: 322px;
   display: inline-block;
   margin-right: 10px;
   margin-left: 10px;
   margin-top: 20px;
-  box-shadow: 0.5px 0.5px 0.5px 0.5px #D2CECF;
+  box-shadow: 1px 1px  #D2CECF;
   border-radius: 4px;
 }
 
-.card:hover {
-  border-color: #0C01CF;   
+.container-card:hover {
+  border-color: #0C01CF  
 }
 
-.pic {
-  min-width: 322px;
+.card-pic{
+  min-width: 310px;
   display: block;
   margin: 0 auto;
 }
 
-.productName {
+.product-name {
   color:#656565;
   margin-bottom: 0;
 }
 
-.productPrice {
+.product-price {
   color:#656565;
   margin-top: 0;
   font-size: 20px;
@@ -135,24 +131,36 @@ p.btn {
   margin-top: 5px;
 }
 
+.cart-list ul {
+  list-style-type: none;
+}
+
+.cart-list li {
+  padding-top: 10px;
+}
+
 .addToCart {
   padding: 9px 25px;
   color: 	#656565;
   background-color: white;
-  border: 1px solid 	#656565;
+  border:1px solid	#656565;
   border-radius: 4px;
   font-size: 14px;
 }
 
 .addToCart:active {
-  border-color: #0C01CF;  
+  border-color: #0C01CF  
+}
+
+.addToCart:hover {
+  border-color: #0C01CF  
 }
 
 .addToCart:focus {
   outline: none; 
 }
 
-.container-empty-cart, .container-cart {
+.container-cart-empty, .container-cart {
   height: 100%;
   width: 100%;
   position: absolute;
@@ -178,36 +186,35 @@ p.center {
   margin: 50px;
 }
 
-.cartImg {
+.img-cart {
   width: 50px;
   height: 50px;
+  background-position:center;
+  background-size: 95px;
   border: 1px solid #BEBEBE;
 }
 
-.items {
+.container-item {
   float: right;
 }
 
-.text {
+.item-name {
   font-size: 12px;
   margin-bottom: 2px;
 }
 
-.price {
+.item-price {
   font-size: 18px;
   display:block;
   margin: 0 auto;
   float: right;
 }
 
-.cart-list ul {
-  list-style-type: none;
-}
-
 .total {
   font-size: 22px;
   font-weight: bold;
 }
+
 .totalPrice {
   float: right;
   font-size: 22px;
@@ -223,7 +230,7 @@ p.center {
   border-radius: 4px;
   font-size: 14px;
 }
-.removeDiv{
+.container-close-button{
   float: right;
 }
 
@@ -236,22 +243,29 @@ p.center {
 }
 
 @media (max-width: 380px) { 
-
-  .shop {
+  .container-shop {
     padding-top: 70px;
+    padding-left:0;
+    padding-right: 0;
   }
-
+  .logo {
+    margin-left: 2px;
+  }
   span {
     font-size:18px;
     font-weight: bold;
   }
   
-  .shopBtn {
+  .shop-button {
     display: inline-block;
     padding-left: 10px;
   }
+
+  .shop-text {
+    margin: 10px;
+  }
   
-  .shopBtn, .chartBtn {
+  .shop-button, .chart-button {
     border: none;
     background: #0C01CF;
     color: white;
@@ -259,16 +273,14 @@ p.center {
     font-family: 'Lato', sans-serif;
   }
 
-  .right {
+  .right-header {
     margin-right: 5px;
-    margin-top: 2px;
+    margin-top: 10px;
   }
 
-  .number { 
-    margin-top: 10px;
+  .number-button { 
     color: #0C01CF;
     width: 25px;
-    height: 20px;
     font-weight: bold;
     border-radius: 5px;
   }

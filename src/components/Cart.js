@@ -14,51 +14,35 @@ class Cart extends Component {
         })
         return sum
     }
+
     render() {
-        if (this.props.products.length > 0) {
-            const list = this.props.products.map((item, index) => {
-                const picturePath = '/images/' + item.filename
-                return (
-                    <li key={index}>
-                        <div className='removeDiv'>
-                            <i className='fa fa-times close' onClick={() => this.props.removeFromCart(index)}></i>
-                        </div>
-                        <div className='items'>
-                            <p className='text'>{item.name} </p>
-                            <p className='price'>{this.formatPrice(item.price)}</p>
-                        </div>
-                        <div className='imgDiv'>
-                            <img className='cartImg' src={picturePath} alt='pic' />
-                        </div>
-                    </li>
-                )
-            })
+        const isEmpty = !this.props.products.length
+
+        const list = this.props.products.map((item, index) => {
+            const picturePath = '/images/' + item.filename
             return (
-                <div className='container-cart'>
-                    <div className='cart'>
-                        <h3 className='center'> Your Cart </h3>
-                        <div className='cart-list'>
-                            <ul>
-                                {list}
-                            </ul>
-                            <hr />
-                            <div>
-                                <div className='totalPrice'>{this.formatPrice(this.calculateTotalPrice())}</div>
-                                <div className='total'> Total </div>
-                            </div>
-                            <div className='center'>
-                                <button className='back' onClick={this.props.clickBack}> Back </button>
-                            </div>
-                        </div>
+                <li key={index}>
+                    <div className='container-close-button'>
+                        <i className='fa fa-times close' onClick={() => this.props.removeFromCart(index)}></i>
                     </div>
-                </div>
+                    <div className='container-item'>
+                        <p className='item-name'>{item.name} </p>
+                        <p className='item-price'>{this.formatPrice(item.price)}</p>
+                    </div>
+                    <div className='container-img'>
+                        <div className='img-cart' style={{'backgroundImage': 'url(' + picturePath + ')'}}>&nbsp;</div>
+                    </div>
+                </li>
             )
-        } else {
-            return (
-                <div className='container-empty-cart'>
-                    <div className='cart-empty'>
-                        <h3 className='center'> Your Cart </h3>
-                        <p className='center'>Nothing in your cart, <br /> start shopping.</p>
+        })
+        
+        return (
+            <div className={'container-cart' + (isEmpty ? '-empty' : '')}>
+                <div className={'cart' + (isEmpty ? '-empty' : '')}>
+                    <h3 className='center'> Your Cart </h3>
+                    <div className='cart-list'>
+                        {!isEmpty && <ul> {list} </ul>}
+                        {isEmpty && <p className='center'>Nothing in your cart, <br /> start shopping.</p>}
                         <hr />
                         <div>
                             <div className='totalPrice'>{this.formatPrice(this.calculateTotalPrice())}</div>
@@ -69,9 +53,8 @@ class Cart extends Component {
                         </div>
                     </div>
                 </div>
-            )
-
-        }
+            </div>
+        )
     }
 }
 

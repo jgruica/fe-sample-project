@@ -10,20 +10,21 @@ class ShoppingList extends Component {
         const list = this.props.products.map((item, index) => {
             const picturePath = '/images/' + item.filename
             return (
-                <div className='card' key={index}>
-                    <img className='pic' src={picturePath} alt='pic' />
-                    <p className='productName'> {item.name} </p>
-                    <p className='productPrice'>${this.calculatePrice(item.price)} </p>
+                <div className='container-card' key={index}>
+                    <img className='card-pic' src={picturePath} alt='card-pic' />
+                    <p className='product-name'> {item.name} </p>
+                    <p className='product-price'>${this.calculatePrice(item.price)} </p>
                     <p><button className='addToCart' onClick={() => this.props.addToCart(item)}> Add to cart</button></p>
                 </div>
             )
         })
+
         return (
-            <div className='shop'>
-                <div className='shopText'>
+            <div className={'container-shop' + (this.props.isCartVisible ? ' blur' : '')}>
+                <div className='shop-text'>
                     Shop our featured collection
                 </div>
-                <div className='list'>
+                <div className='shop-list'>
                     {list}
                 </div>
             </div>
